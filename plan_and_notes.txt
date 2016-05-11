@@ -1,0 +1,118 @@
+The XY Plotter kit has arrived.
+
+Constructing the plotter using the manual.
+
+
+
+Fake finger:
+
+Get a fake finger to use as the key presser.
+
+
+Setup:
+
+ - Open the GREmote GUI and use that.
+ - Make sure the computer is connected to the plotter with a usb cable.
+ - Make sure the motherboard is provided with a power supply, get the power supply from the box!
+
+Here is a skematic of the orientation of the plotter and keyboard.
+The letter key portion, Arrow keys, and num pad are pictured.
+
+                  +y
+
+          +---------------------+
+          |                     |
+          | +-----------------+-+--++ X Motor.
+          | +---------------- +-+--++
+          |                     |
+          |  o P           789  |
+  -x      |   L  ENTER     456  |  +x
+          |      SHIFT  ^  123  |
+          |      CTRL  <V> 00.  |
+          |                     |
+          +---------------------+ Y Motor
+  (x0, y0)   *MotherBoard*
+
+                  -y
+
+KeyBoard: Apple long key board: white, very flat, contains numpad and large key arrows.
+
+
+The NUMLOCK should be on.
+The plotter z value start at absolute Z 70.
+
+GCode Commands:
+
+Absolute: 
+
+- z70 makes the pointer fully up.
+- z50 makes the pointer fully down.
+
+
+Emergent behavior:
+- Connecting the plotter to the keyboard while the apple keyboard is connected to this labtop and the gui is running has the plotter automatically move off of any arrow key that it depresses.
+
+
+Key Locations: All coordinates given in absolute locations relative to the Left key..
+
+Settings: 115200, COM4.
+
+ZERO out the pointer while it is on the LEFT key
+Calibrate perpendicularity (Keyboard Rotation)
+  with the '+' key on the numpad at 230, 80
+  and the 'U' key at -300, 120
+
+(x, y)
+Left:   0, 0.
+Down:  30, 0.
+UP:    30, 30.
+Right: 70, 0.
+
+Home:  20, 150.
+End:   20, 110.
+
+Page up:   60, 150
+Page down: 60, 110
+
+7:  110, 120
+8:  150, 120
+9:  190, 120
+6:  190, 70
+5:  150, 70
+4:  110, 70
+1:  120, 40
+2:  160, 40
+3:  200, 40
+0:  150, 0
+.:  210, 0
+ENTER: 240, 10
++:  230, 80
+-:  230, 110
+*:  230, 150
+/:  190, 150
+=:  150, 150
+
+\ or |: -70, 120
+{ or [: -150, 120
+} or ]: -110, 120
+; or : : -170, 80
+' or " : -130, 80
+ENTER: -80, 80
+SHIFT: -90, 40
+? or /: -140, 40
+> or .: -180, 40
+< or ,: -220, 40
+L : -210, 80
+O : -220, 120
+P : -180, 120
+K : -250, 80
+I : -260, 120
+U : -300, 120
+J : -280, 80
+M : -260, 50
+SPACE: -260, 10
+CTRL : -70, 10
+DELETE: -20, 120
+
+
+Use Com 6, which is the bottom right port on my lenovo ideapad computer.

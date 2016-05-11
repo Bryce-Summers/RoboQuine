@@ -1,0 +1,61 @@
+ /* Here is the well commented and explained version of the QUINE code,
+  * written in the Bryce Summers plotter language.
+  * This Bryce Summers plotter language code was written by Bryce Summers.
+  */
+  
+  # P represents a text repository function that provids strings that may 
+    be printed through the contrived syntex of the Bryce Summers plotter language.
+    | P:
+   0|   "P:"
+   1|   "."
+   2|   "L:" # Lambda Function.
+   3|   ">""
+   4|   "i"
+   5|   ">""
+   6|   "."
+   7|   "P[0]"
+   8|   "L[P[0,10]]"
+   9|   "P[1]"
+  10|   "P[2,10]"
+    | .
+
+  # L represents a simple lambda function for mapping inputs to their enclosed quotation.
+  # Perhaps L stands for Lambda?
+  # >X means type X.
+  
+    | L:
+   0|   >"
+   1|   i
+   2|   >"
+   3| .
+  
+  P[0]       # Opening code of P function.
+  L[P[0, 10]]# Print the strings in quotations, using the L lambda expression.
+  P[1]       # Print the closing '.' at the end of P.
+  P[2, 10]   # Print L and these final operation commands.
+  */
+  
+  /* Here is the condensed real version of the quine code, without comments and line numberings.
+  P:
+    "P:"
+    "."
+    "L:"
+    ">""
+    "i"
+    ">""
+    "."
+    "P[0]"
+    "L[P[0,10]]"
+    "P[1]"
+    "P[2,10]"
+  .
+  L:
+    >"
+    i
+    >"
+  .
+  P[0]
+  L[P[0, 10]]
+  P[1]
+  P[2, 10]
+  */

@@ -1,0 +1,117 @@
+/*
+ * 2D Plotter based Quine, written in Bryce Summers Plotter Language
+ * which gets enacted as GCode for the MakeBlock 2D plotter.
+ *
+ * Written by Bryce Summers, 4/11/2016.
+ *
+ * Note: This is not actually runnable source code, but rather a sketch of a program.
+ */
+
+/* Thoughts.
+ * If I were to manually type out all of the numbers, that would be too complicated.
+ *
+ * There needs to be a notion of programming language vs. gcode implementation.
+ * My goal is to communicate the idea of a Robotic Quine in as clear a manner as possible.
+ * Therefore, I am making many simplifications.
+ *
+ * Another interesting thing I am doing is that I don't necessarily need to interpret the
+ * robot's key strokes accuratly, for the sake of illusion I could interpret the robot's  * strokes to be correct.
+ *
+ * For a translation between keys and their numeric values, please see the
+ * 'plan_and_notes.txt' document in the same folder as this document.
+ */
+
+We will simplify things and not require ENTER presses either.
+
+/* Syntax
+ *
+ * P< means Type P
+ * 1> means Type 1
+ * >> means Type >
+ * P: means function P.
+ * .  means end of function and is the NUMPAD dot.
+ * > means type the previous character.
+ * P[i1, i2] means execute the lines i1 to i2 of the function P. inclusive.
+ * "" when executed prints a string.
+ */
+
+
+#===========================
+| Outline.
+#===========================
+
+
+# The function P, it contains all of the printing commands neccessary to print itself
+#                 along.
+
+    P:
+ 0    P> # Print header: P:
+ 1    :> # 
+ 2    P> # Print P>
+ 3    >> # 
+ 4    :> # Print :>
+ 5    >> # 
+ 6    >> # Print >>
+ 7    >> # 
+ 8    >. # Print .
+      >" # Print a "
+ 9    "P[0, 5]" #9
+10    "P[2, 3]"
+11    "P[6, 7]"
+12    "P[4, 7]"
+13    "P[6, 7]"
+14    "P[7, 8]"
+15    "P[8]"
+    . # End of function.
+
+P[0, 5] # Print header, then P> :>
+P[2, 3] # P>
+P[6, 7] # >>
+P[4, 7] # :> >>
+P[6, 7]*2 # >> >>
+P[7, 8] # >.
+P[8]
+
+
+// Thoughts. We need to print the entire functions we use, then print the commands.
+
+
+#===== NEW and Improved Code ===============
+
+# P Contains the source code of the program.
+# Perhaps P stands for print.
+
+  | P:
+ 0|   "P:"
+ 1|   "."
+ 2|   "L:" # Lambda Function.
+ 3|   ">""
+ 4|   "i"
+ 5|   ">""
+ 6|   "P[0]"
+ 7|   "L[P[0, 8]]"
+ 8|   "P[1]"
+ 9|   "P[2,8]"
+  | .
+
+# L Contains a simple lambda function for mapping inputs to their enclosed quotation.
+# Perhaps L stands for Lambda?
+# >X means type X.
+
+  | L:
+ 0|   >"
+ 1|   i
+ 2|   >"
+
+P[0]       # Opening code of P function.
+L[P[0, 9]] # Print the strings in quotations, using the L lambda expression.
+P[1]       # Print the closing '.' at the end of P.
+P[2, 9]    # Print L and these final operation commands.
+
+# We will manually infer enters and line breaks.
+
+TODO:
+1. I need to write translate all of these commands to GCode.
+2. I need to write a proccessing GUI for receiving and interpretting the key strokes in a pleasing manner on screen.
+
+I would like informational text to appear while the robot is typing.
